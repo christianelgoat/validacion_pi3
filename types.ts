@@ -6,4 +6,8 @@ export interface ValidationObjective {
   measurementParameter: string;
   experimentalMethod: string;
   acceptanceCriteria: string;
+  result: {
+    status: 'CUMPLIDO' | 'NO CUMPLIDO';
+    value: string;
+  };
 }

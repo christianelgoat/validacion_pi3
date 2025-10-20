@@ -14,20 +14,23 @@ const App: React.FC = () => {
           <table className="w-full text-sm text-left text-slate-600">
             <thead className="text-xs text-slate-700 uppercase bg-slate-100">
               <tr>
-                <th scope="col" className="px-6 py-4 font-semibold w-1/5">
+                <th scope="col" className="px-6 py-4 font-semibold w-1/4">
                   Objetivo a Validar (SMART)
                 </th>
-                <th scope="col" className="px-6 py-4 font-semibold w-1/6">
+                <th scope="col" className="px-6 py-4 font-semibold w-[12%]">
                   Tipo de Ensayo
                 </th>
-                <th scope="col" className="px-6 py-4 font-semibold w-1/6">
+                <th scope="col" className="px-6 py-4 font-semibold w-[15%]">
                   Parámetro de Medición
                 </th>
                 <th scope="col" className="px-6 py-4 font-semibold w-1/4">
                   Método Experimental
                 </th>
-                <th scope="col" className="px-6 py-4 font-semibold w-1/5">
+                <th scope="col" className="px-6 py-4 font-semibold w-[15%]">
                   Criterio de Aceptabilidad
+                </th>
+                <th scope="col" className="px-6 py-4 font-semibold w-[12%]">
+                  Resultado
                 </th>
               </tr>
             </thead>
@@ -56,6 +59,18 @@ const App: React.FC = () => {
                   </td>
                   <td className="px-6 py-4 align-top font-semibold text-slate-800">
                     {item.acceptanceCriteria}
+                  </td>
+                   <td className="px-6 py-4 align-top font-bold">
+                    <div
+                      className={`${
+                        item.result.status === 'CUMPLIDO'
+                          ? 'text-green-600'
+                          : 'text-red-600'
+                      }`}
+                    >
+                      {item.result.status}
+                      <p className="font-normal text-slate-500 text-xs mt-1">{item.result.value}</p>
+                    </div>
                   </td>
                 </tr>
               ))}
